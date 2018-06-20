@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h3>Add a New Album</h3>
+  </div>
+</div>
+
+<form action="/albums/create" class="col-sm-4">
+
+    <p class="form-group">Title: <input autofocus class="form-control" name="title"></p>
+
+    <p class="form-group">Year: <input class="form-control" name="year"></p>
+
+    <p class="form-group">Link to Photo: <input class="form-control" name="photo_url"></p>
+
+    <p class="form-group">Artist: 
+    
+      <select name="artist_id">
+        
+        <% for artist in Artist.all %>
+          <option value="<%= artist.id %>">
+            <%= artist.name %>
+          </option>
+        <% end %>
+        
+      </select>
+    
+    </p>
+
+    <button class="btn btn-primary">Add This Album</button>
+    or
+    <a href="/">Cancel</a>
+
+</form>

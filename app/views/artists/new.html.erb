@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h3>Add a New Artist</h3>
+  </div>
+</div>
+
+<form action="/artists/create" class="col-sm-4">
+
+    <p class="form-group">Name: <input autofocus class="form-control" name="name"></p>
+
+    <p class="form-group">Genre: <input class="form-control" name="genre"></p>
+
+    <p class="form-group">Link to Photo: <input class="form-control" name="photo_url"></p>
+
+    <p class="form-group">Bio:
+      <textarea rows="7" class="form-control" name="bio"></textarea>
+    </p>
+
+    <button class="btn btn-primary">Add This Artist</button>
+    or
+    <a href="/">Cancel</a>
+
+</form>

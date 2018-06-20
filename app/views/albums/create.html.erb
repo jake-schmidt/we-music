@@ -1,0 +1,5 @@
+<h1>Album Added</h1>
+
+<% a = Album.create title: params["title"], year: params["year"], photo_url: params["photo_url"], platinum: params["platinum"], gold: params["gold"], artist_id: params["artist_id"] %>
+                
+<p>Thanks for adding <%= a.title %>!</p>

@@ -1,0 +1,37 @@
+<% album = Album.find_by(id: params["id"]) %>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h3>Edit This Album</h3>
+  </div>
+</div>
+
+<div class="row">
+  <form action="/albums/<%= album.id %>/update" class="col-sm-6">
+
+    <p class="form-group">Title: <input value="<%= album.title %>" autofocus class="form-control" name="title"></p>
+
+    <p class="form-group">Year: <input value="<%= album.year %>" class="form-control" name="year"></p>
+
+    <p class="form-group">Link to Photo: <input value="<%= album.photo_url %>" class="form-control" name="photo_url"></p>
+    
+    <p class="form-group">Artist: 
+    
+      <select name="artist_id">
+        
+        <% for artist in Artist.all %>
+          <option value="<%= artist.id %>">
+            <%= artist.name %>
+          </option>
+        <% end %>
+        
+      </select>
+    
+    </p>
+
+    <button class="btn btn-primary">Update</button>
+    or
+    <a href="/albums">Cancel</a>
+
+  </form>
+</div>

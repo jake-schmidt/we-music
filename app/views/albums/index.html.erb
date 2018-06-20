@@ -1,0 +1,33 @@
+<h1>Albums</h1>
+
+<% if session["user_id"] != nil %>
+
+  <p>
+    <a class="float-right btn btn-primary" href="/albums/new">Add a New Album</a>
+  <p>
+
+<% end %>
+
+
+<div class="row justify-content-center">
+
+    <% for album in Album.all %>
+
+      <div class="col-sm-2 m-4">
+
+        <a href="/albums/<%= album.id %>">
+
+        <% if album.photo_url.blank? %>
+          <% album.photo_url = "/blank_poster.png" %>
+        <% end %>
+
+        <img src="<%= album.photo_url %>" class="img-fluid">
+        <a href="/albums/<%= album.id %>" class="justify-content-center">
+          <%= album.title %>
+        </a>
+
+      </div>
+
+    <% end %>
+
+</div>

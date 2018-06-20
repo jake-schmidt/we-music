@@ -1,0 +1,23 @@
+<% a = Album.find_by(id: params["id"]) %>
+<% artist = Artist.find_by(id: a.artist_id) %>
+
+<% if a.gold == true %>
+  <% accolades = "Accolades: Gold" %>
+<% end %>
+<% if a.platinum == true %>
+  <% accolades = "Accolades: Platinum, Gold" %>
+<% end %>
+
+
+<% if session["user_id"] != nil %>
+  <a href="/albums/<%= a.id %>/edit" class="btn btn-danger float-right">Edit This Album</a>
+<% end %>
+
+
+<h3 class="pl-3"><%= a.title %></h3>
+
+<p><img width="350" src="<%= a.photo_url %>"></p>
+<p>Year: <%= a.year %> </p>
+<p><%= accolades %></p>
+
+<p>By artist: <a href="/artists/<%= artist.id %>"><%= artist.name %></a></p>

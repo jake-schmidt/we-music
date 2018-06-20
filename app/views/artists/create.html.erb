@@ -1,0 +1,5 @@
+<h1>Artist Created</h1>
+
+<% a = Artist.create name: params["name"], genre: params["genre"], bio: params["bio"], photo_url: params["photo_url"], grammy: params["grammy"] %>
+                
+<p>Thanks for adding <%= a.name %>!</p>

@@ -1,0 +1,20 @@
+<h1>Artists</h1>
+
+<% if session["user_id"] != nil %>
+
+  <p>
+    <a class="float-right btn btn-primary" href="/artists/new">Add a New Artist</a>
+  <p>
+
+<% end %>
+
+<ol>
+  <% for artist in Artist.all %>
+    <li>
+      <a href="/artists/<%= artist.id %>">
+          <strong><%= artist.name %></strong>
+      </a>
+      <a href="/artists/<%= artist.id %>/delete">[Delete]</a>
+    </li>
+  <% end %>
+</ol>

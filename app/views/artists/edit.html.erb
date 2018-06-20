@@ -1,0 +1,27 @@
+<% artist = Artist.find_by(id: params["id"]) %>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h3>Edit This Artist</h3>
+  </div>
+</div>
+
+<div class="row">
+  <form action="/artists/<%= artist.id %>/update" class="col-sm-6">
+
+    <p class="form-group">Name: <input value="<%= artist.name %>" autofocus class="form-control" name="name"></p>
+
+    <p class="form-group">Genre: <input value="<%= artist.genre %>" class="form-control" name="genre"></p>
+
+    <p class="form-group">Link to Photo: <input value="<%= artist.photo_url %>" class="form-control" name="photo_url"></p>
+
+    <p class="form-group">Bio:
+      <textarea rows="7" class="form-control" name="bio"><%= artist.bio %></textarea>
+    </p>
+
+    <button class="btn btn-primary">Update</button>
+    or
+    <a href="/">Cancel</a>
+
+  </form>
+</div>

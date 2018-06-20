@@ -1,0 +1,51 @@
+<% a = Artist.find_by(id: params["id"]) %>
+
+<% if session["user_id"] != nil %>
+  <a href="/artists/<%= a.id %>/edit" class="btn btn-danger float-right">Edit This Artist</a>
+<% end %>
+
+<h3 class="pl-3"><%= a.name %></h3>
+
+<div class="row">
+  <div class="col-sm-3 d-flex flex-column align-items-center">
+
+    <% artist = Artist.find_by(id: a.id) %>
+
+    <p><img width="200" src="<%= a.photo_url %>"></p>
+    <% if a.grammy == true then %>
+      <strong>Grammy winner</strong>
+    <% end %>
+    <p>Genre: <%= a.genre %> </p>
+
+
+  </div>
+  <div class="col-sm-6">
+    <p class="lead">
+      <%= a.bio %>
+    </p>
+  </div>
+
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-sm-3">
+    <h5>Albums by <%= a.name %></h5>
+  </div>
+
+  <% for album in Album.all %>
+    <% if album.artist_id == a.id %>
+      <div class="col-sm-3">
+        <p>
+          <img width="100" src="<%= album.photo_url %>">
+        </p>
+        <a href="/albums/<%= album.id %>">
+          <%= album.title %>
+        </a>
+      </div>
+    <% end %>
+  <% end %>
+
+
+</div>
